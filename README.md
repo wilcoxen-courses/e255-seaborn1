@@ -1,4 +1,4 @@
-# Example: Introduction to Seaborn
+# Exercise: Introduction to Seaborn
 
 ### Summary
 
@@ -20,7 +20,7 @@ The deliverable for this assignment is a script, **figures.py**, that generates 
 
 1. Create dataframe `pv` by using `pd.read_pickle()` to read `"ca_csi_2020_pkl.zip"`.
 
-1. Print an informative message and then print the result of calling the `.info()` method on `pv`. The `.info()` method lists the name of each column, the column's count of non-null values, and the column's datatype.
+1. Print an informative message and then call the `.info()` method on `pv`. The `.info()` method prints the name of each column, the column's count of non-null values, and the column's datatype.
 
 1. Set up a list called `catvars` that includes the strings `'app_status'`, `'sector'`, `'state'`, `'inst_status'`, and `'type'`. All of these are categorical variables.
 
@@ -70,7 +70,7 @@ The deliverable for this assignment is a script, **figures.py**, that generates 
 
 1. Create a new dataframe called `trim` by calling the `.query()` method on `res` with the argument `f"nameplate <= {kw99} and total_cost <= {tc99}"`.
 
-1. Print the new number of records in `res` to make sure a reasonable number (between 1 and 2 percent) were removed.
+1. Print the new number of records in `trim` to make sure a reasonable number (between 1 and 2 percent) were removed.
 
 1. Now repeat the steps used to construct the two-panel figure above but using dataframe `trim` instead of `res`. If all goes well you should see two much nicer histograms.
 
