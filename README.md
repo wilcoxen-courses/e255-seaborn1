@@ -106,7 +106,7 @@ The deliverable for this assignment is a script, **figures.py**, that generates 
 
 1. Set the labels of the X and Y axes by calling the `.set_axis_labels()` method of `jg` with the arguments `"Nameplate"` and `"Total Cost"`. Note that this differs from the way labels are set on individual Axes objects.
 
-1. Finally, save the figure as `"res_hexbin.png"` using `dpi=300`.
+1. Finally, use the `.savefig()` method of `jg` to save the figure as `"res_hexbin.png"` using `dpi=300`.
 
 ### Submitting
 
