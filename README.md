@@ -16,13 +16,7 @@ The deliverable for this assignment is a script, **figures.py**, that generates 
 
 1. Import `pandas` and `matplotlib.pyplot`, and import `seaborn` as `sns`.
 
-1. Set the default resolution for all Matplotlib plots, which includes those drawn by Seaborn, to 300 DPI using the line below:
-
-    ```python
-    plt.rcParams['figure.dpi'] = 300
-    ```
-
-    This allows the `dpi=300` keyword to be omitted from calls to `plt.subplots()` and also sets the resolution for some Seaborn figures that don't support the `dpi` keyword argument directly. `plt.rcParams` is a dictionary and many other Matplotlib defaults can be set this way as well.
+1. Set the default DPI for plots to 300. Seaborn is built on Matplotlib so this will set the resolution of Seaborn plots as well.
 
 1. Set the default style for Seaborn by calling `sns.set_theme()` with the argument `style="white"`.
 
