@@ -44,11 +44,16 @@ hourly = by_mo_hr['usage'].mean()
 hourly = hourly.reset_index()
 
 #
-#  Bar graph of use by hour
+#  Bar graph of use by hour.
+#
+#  This treats hue as a categorical value. As of seaborn 0.13, the
+#  default palette for categorical values is unpleasant so change it to
+#  seaborn's general default palette, "deep".
 #
 
 fig, ax1 = plt.subplots()
-sns.barplot(data=hourly,x='hour',y='usage',hue='month',ax=ax1)
+sns.barplot(data=hourly,x='hour',y='usage',
+            hue='month',palette='deep',ax=ax1)
 ax1.set_title("Average Electricity Usage")
 ax1.set_xlabel("Hour")
 ax1.set_ylabel("kW")
@@ -85,10 +90,14 @@ fig.savefig('f3_violins.png')
 #  and 8pm. Use split violins for easy contrast between January and
 #  July.
 #
+#  The hue variable will be treated as categorical, so specify an
+#  improved palette.
+
 
 eights = janjul.query("hour==8 or hour==12 or hour==20")
 fig, ax1 = plt.subplots()
-sns.violinplot(data=eights,x="hour",y="usage",hue="month",split=True)
+sns.violinplot(data=eights,x="hour",y="usage",
+               hue="month",palette='deep',split=True)
 fig.tight_layout()
 fig.savefig('f4_split-violins.png')
 

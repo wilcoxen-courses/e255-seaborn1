@@ -10,7 +10,7 @@ The input data is **ca_csi_2020_pkl.zip**, a zipped pickle file that will need t
 
 ## Deliverables
 
-The deliverable for this assignment is a script, **figures.py**, that generates a range of figures using Pandas and Seaborn.
+The deliverable for this assignment is a script, **figures.py**, that generates a range of figures using pandas and seaborn.
 
 ## Instructions
 
@@ -58,7 +58,7 @@ The deliverable for this assignment is a script, **figures.py**, that generates 
 
 1. Now create a figure with two panels in a row by setting `fig, (ax1,ax2)` to the result of calling `plt.subplots(1,2)`. The 1 and 2 in the call indicate the number of rows and columns of panels in the plot.
 
-1. Next, call `.plot.hist()` on the `"nameplate"` column of `res` with the argument `ax=ax1` to put the histogram in the left panel. Just to be clear, this is a straight Pandas call: we're not using Seaborn yet.
+1. Next, call `.plot.hist()` on the `"nameplate"` column of `res` with the argument `ax=ax1` to put the histogram in the left panel. Just to be clear, this is a straight pandas call: we're not using seaborn yet.
 
 1. Use the `.set_title()` method of `ax1` to set its title to `"Nameplate"`.
 
@@ -76,9 +76,9 @@ The deliverable for this assignment is a script, **figures.py**, that generates 
 
 1. Now repeat the steps used to construct the two-panel figure above but using dataframe `trim` instead of `res`. If all goes well you should see two much nicer histograms.
 
-1. Save the figure as `"nameplate_cost.png"`.
+1. Save the figure as `"res_nameplate_cost.png"`.
 
-1. Now we'll use Seaborn to do some comparisons of projects with different values of the `"third_party"` variable. Use `var` to loop over a list consisting of the column names `"nameplate"` and `"total_cost"`. Within the loop do the following:
+1. Now we'll use seaborn to do some comparisons of projects with different values of the `"third_party"` variable. Use `var` to loop over a list consisting of the column names `"nameplate"` and `"total_cost"`. Within the loop do the following:
 
     1. Create a new figure by setting `fig, ax1` equal to the result of calling `plt.subplots()`. Please note: use the same statement for the rest of the semester whenever the instructions say to *create a new single-panel figure* and don't say explicitly how to do it. When doing so, include the `dpi=300` argument if the script doesn't set the default resolution using `plt.rcParams`.
 
@@ -106,11 +106,11 @@ The deliverable for this assignment is a script, **figures.py**, that generates 
 
 1. Tighten the figure's layout and then save it as `"res_boxen_year.png"`.
 
-1. Finally, we'll show the joint distribution of `"nameplate"` and `"total_cost"` using a hex plot. A hex plot is essentially an enhanced scatter plot for large datasets: it shows the density of points using colors that vary in intensity. The function we'll use produces a high-level Seaborn JointGrid graphics object and does *not* require that `plt.subplots()` be called first. To create the plot, set `jg` equal to the result of calling `sns.jointplot()` with the following arguments: `data=trim`, `x="nameplate"`, `y="total_cost"`, and `kind="hex"`.
+1. Finally, we'll show the joint distribution of `"nameplate"` and `"total_cost"` using a hex plot. A hex plot is essentially an enhanced scatter plot for large datasets: it shows the density of points using colors that vary in intensity. The function we'll use produces a high-level seaborn JointGrid graphics object and does *not* require that `plt.subplots()` be called first. To create the plot, set `jg` equal to the result of calling `sns.jointplot()` with the following arguments: `data=trim`, `x="nameplate"`, `y="total_cost"`, and `kind="hex"`.
 
 1. Set the labels of the X and Y axes by calling the `.set_axis_labels()` method of `jg` with the arguments `"Nameplate"` and `"Total Cost"`. Note that this differs from the way labels are set on individual Axes objects.
 
-1. Now set the overall title by calling `jg.fig.suptitle()` with the argument `"Distribution of Systems by Cost and Capacity"`. As you can probably tell, `jg.fig` provides access to the Matplotlib Figure object embedded in Seaborn's JointGrid object.
+1. Now set the overall title by calling `jg.fig.suptitle()` with the argument `"Distribution of Systems by Cost and Capacity"`. As you can probably tell, `jg.fig` provides access to the Matplotlib Figure object embedded in seaborn's JointGrid object.
 
 1. Then call `jg.fig.tight_layout()` to tidy up the layout.
 
@@ -122,7 +122,7 @@ Once you're happy with everything and have committed all of the changes to your 
 
 ## Notes
 
-+ Constructing figures can be confusing because of several kinds of objects are involved. In Matplotlib itself, the workhorse objects are Axes and Figures. Seaborn adds additional complication because some of its functions return Axes, some return Figures, and some return higher-level objects (FacetGrid, JointGrid, and PairGrid objects). The Axes and Figure objects can be tweaked using standard Matplotlib calls but the three Seaborn grid objects are more complex and have their own sets of methods.
++ Constructing figures can be confusing because of several kinds of objects are involved. In Matplotlib itself, the workhorse objects are Axes and Figures. Seaborn adds additional complication because some of its functions return Axes, some return Figures, and some return higher-level objects (FacetGrid, JointGrid, and PairGrid objects). The Axes and Figure objects can be tweaked using standard Matplotlib calls but the three seaborn grid objects are more complex and have their own sets of methods.
 
 ## FAQ
 
