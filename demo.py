@@ -23,8 +23,44 @@ sns.set_theme(style="white")
 
 usage = pd.read_csv('use.csv')
 
+#%%
 #
-#  Trim it down to just January and July for seasonal comparisons
+#  Pivot the data to have one column for each hour, and then compute each
+#  hour's usage as a percent of the day's
+#
+
+by_day_use = usage.pivot(index=['month','day'],columns='hour',values='usage')
+
+by_day_tot = by_day_use.sum(axis='columns')
+by_day_pct = 100*by_day_use.div(by_day_tot,axis='index')
+
+#
+#  Now compute the mean percentages by month
+#
+
+means = by_day_pct.groupby('month').mean()
+
+#
+#  Convert to long form for seaborn. Reset the index to move the month into the
+#  columns of the data frame so it can be used as the ID variable.
+#
+
+long_form = means.reset_index().melt(id_vars='month')
+
+#
+#  Draw a line plot of mean daily percentage by hour and month
+#
+
+fig,ax = plt.subplots()
+sns.lineplot(data=long_form,x='hour',y='value',hue='month',palette='viridis',ax=ax)
+fig.suptitle('Mean Use by Hour and Month')
+ax.set_xlabel('Hour')
+ax.set_ylabel('Percent of Daily Electricity Use')
+fig.tight_layout()
+
+#%%
+#
+#  Now trim it down to just January and July for seasonal comparisons
 #
 
 janjul = usage.query("month == 1 or month == 7")
