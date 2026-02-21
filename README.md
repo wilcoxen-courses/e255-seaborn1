@@ -52,9 +52,9 @@ The deliverable for this assignment is a script, **figures.py**, that generates 
 
     1. Save the figure using `f"res_{var}.png"` as the filename.
 
-1. Now we'll look into the nameplate capacity and cost of the systems in more detail. First, drop any records that are missing data for those specific fields. (FAQ2)
+1. Now we'll look into the nameplate capacity and cost of the systems in more detail. First, set `n_last` equal to the length of `res`. Then drop any records that are missing data for those specific fields. (FAQ2)
 
-1. Then, set `n_now` to the new length of `res` and print an informative message indicating the number of records dropped.
+1. Then, set `n_now` to the new length of `res` and use it and `n_last` to print an informative message indicating the number of records dropped.
 
 1. Now create a figure with two panels in a row by setting `fig, (ax1,ax2)` to the result of calling `plt.subplots(1,2)`. The 1 and 2 in the call indicate the number of rows and columns of panels in the plot.
 
@@ -110,9 +110,9 @@ The deliverable for this assignment is a script, **figures.py**, that generates 
 
 1. Set the labels of the X and Y axes by calling the `.set_axis_labels()` method of `jg` with the arguments `"Nameplate"` and `"Total Cost"`. Note that this differs from the way labels are set on individual Axes objects.
 
-1. Now set the overall title by calling `jg.fig.suptitle()` with the argument `"Distribution of Systems by Cost and Capacity"`. As you can probably tell, `jg.fig` provides access to the Matplotlib Figure object embedded in seaborn's JointGrid object.
+1. Now set the overall title by calling `jg.figure.suptitle()` with the argument `"Distribution of Systems by Cost and Capacity"`. As you can probably tell, `jg.figure` provides access to the Matplotlib Figure object embedded in seaborn's JointGrid object.
 
-1. Then call `jg.fig.tight_layout()` to tidy up the layout.
+1. Then call `jg.figure.tight_layout()` to tidy up the layout.
 
 1. Finally, use the `.savefig()` method of `jg` with argument `"res_hexbin.png"` to save the figure.
 
